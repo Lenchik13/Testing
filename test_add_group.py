@@ -20,3 +20,4 @@ def test_add_empty_group(app):
     app.login(username="admin", password="secret")
     app.created_group(Group(name="", header="", footer=""))
     app.logout()
+    
