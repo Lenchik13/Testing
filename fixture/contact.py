@@ -1,3 +1,5 @@
+import time
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -69,3 +71,31 @@ class ContactHelper:
         wd = self.app.wd
         # open add new contact
         wd.find_element_by_link_text("add new").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        #select first contact
+        wd.find_element_by_name("selected[]").click()
+        #submit delision
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        wd.switch_to_alert().accept()
+
+    def edit_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img").click()
+        wd.find_element_by_name("middlename").click()
+        wd.find_element_by_name("middlename").clear()
+        wd.find_element_by_name("middlename").send_keys("Borisovna")
+        wd.find_element_by_name("address").click()
+        wd.find_element_by_name("address").clear()
+        wd.find_element_by_name("address").send_keys("Moscow, Mira str,, 20")
+        wd.find_element_by_name("home").click()
+        wd.find_element_by_name("home").clear()
+        wd.find_element_by_name("home").send_keys("+7(499)9999999")
+        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").click()
+        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").click()
+        wd.find_element_by_name("update").click()
+
+

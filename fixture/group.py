@@ -39,3 +39,22 @@ class GroupHelper:
         #submit delision
         wd.find_element_by_name("delete").click()
         self.return_to_group_page()
+
+    def edit_group(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        #select group
+        wd.find_element_by_name("selected[]").click()
+        #edit group
+        wd.find_element_by_xpath("//div[@id='content']/form/input[6]").click()
+        wd.find_element_by_name("group_name").click()
+        wd.find_element_by_name("group_name").clear()
+        wd.find_element_by_name("group_name").send_keys("gr2")
+        wd.find_element_by_name("group_header").click()
+        wd.find_element_by_name("group_header").clear()
+        wd.find_element_by_name("group_header").send_keys("grr2")
+        wd.find_element_by_name("group_footer").click()
+        wd.find_element_by_name("group_footer").clear()
+        wd.find_element_by_name("group_footer").send_keys("grrr2")
+        wd.find_element_by_name("update").click()
+
