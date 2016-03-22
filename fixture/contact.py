@@ -1,5 +1,3 @@
-import time
-
 class ContactHelper:
 
     def __init__(self, app):
@@ -82,7 +80,7 @@ class ContactHelper:
 
     def edit_contact(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img").click()
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
         wd.find_element_by_name("middlename").send_keys("Borisovna")
