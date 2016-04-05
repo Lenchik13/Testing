@@ -73,18 +73,20 @@ class ContactHelper:
         # open add new contact
         wd.find_element_by_link_text("add new").click()
 
-    def delete_first_contact(self):
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         #select first contact
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         #submit delision
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def edit_contact(self):
+    def edit_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_elements_by_name("selected[]")[index].click()
+        wd.find_element_by_xpath("//td[8]/a/img").click()
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
         wd.find_element_by_name("middlename").send_keys("Borisovna")
@@ -112,9 +114,10 @@ class ContactHelper:
             wd = self.app.wd
             self.contact_cache = []
             for element in wd.find_elements_by_name("entry"):
-                text = element.text
+                lastname = element.find_element_by_xpath('./td[2]').text
+                firstname = element.find_element_by_xpath('./td[3]').text
                 id = element.find_element_by_name("selected[]").get_attribute("value")
-                self.contact_cache.append(Contact(lastname=text, id=id))
+                self.contact_cache.append(Contact(lastname=lastname, firstname=firstname, id=id))
         return list(self.contact_cache)
 
 
