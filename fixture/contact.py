@@ -84,9 +84,8 @@ class ContactHelper:
 
     def edit_contact_by_index(self, index):
         wd = self.app.wd
-        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         wd.find_elements_by_name("selected[]")[index].click()
-        wd.find_element_by_xpath("//td[8]/a/img").click()
+        wd.find_elements_by_xpath("//img[@src='icons/pencil.png']")[index].click()
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
         wd.find_element_by_name("middlename").send_keys("Borisovna")
