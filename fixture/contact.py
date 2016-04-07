@@ -82,25 +82,25 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def edit_contact_by_index(self, index):
-        wd = self.app.wd
-        wd.find_elements_by_name("selected[]")[index].click()
-        wd.find_elements_by_xpath("//img[@src='icons/pencil.png']")[index].click()
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys("Borisovna")
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys("Moscow, Mira str,, 20")
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys("+7(499)9999999")
-        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").click()
-        wd.find_element_by_name("update").click()
-        self.contact_cache = None
+#    def edit_contact_by_index(self, index):
+#        wd = self.app.wd
+#        wd.find_elements_by_name("selected[]")[index].click()
+#        wd.find_elements_by_xpath("//img[@src='icons/pencil.png']")[index].click()
+#        wd.find_element_by_name("firstname").click()
+#        wd.find_element_by_name("firstname").clear()
+#        wd.find_element_by_name("firstname").send_keys("Firstname")
+#        wd.find_element_by_name("address").click()
+#        wd.find_element_by_name("address").clear()
+#        wd.find_element_by_name("address").send_keys("Moscow, Mira str,, 20")
+#        wd.find_element_by_name("home").click()
+#        wd.find_element_by_name("home").clear()
+#        wd.find_element_by_name("home").send_keys("+7(499)9999999")
+#        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").is_selected():
+#            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[1]//option[15]").click()
+#        if not wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").is_selected():
+#            wd.find_element_by_xpath("//div[@id='content']/form[1]/select[2]//option[11]").click()
+#        wd.find_element_by_name("update").click()
+#        self.contact_cache = None
 
     def count(self):
         wd = self.app.wd
@@ -118,6 +118,27 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(lastname=lastname, firstname=firstname, id=id))
         return list(self.contact_cache)
+
+    def modify_contact_by_index(self, index, new_contact_data):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
+        wd.find_elements_by_xpath("//img[@src='icons/pencil.png']")[index].click()
+        self.fill_contact_form(new_contact_data)
+        wd.find_element_by_name("update").click()
+        self.contact_cache = None
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
+        self.change_field_value("firstname", contact.firstname)
+        self.change_field_value("lastname", contact.lastname)
+        self.change_field_value("address", contact.address)
+
+    def change_field_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+             wd.find_element_by_name(field_name).click()
+             wd.find_element_by_name(field_name).clear()
+             wd.find_element_by_name(field_name).send_keys(text)
 
 
 
