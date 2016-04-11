@@ -1,15 +1,29 @@
 # -*- coding: utf-8 -*-
 from model.contact import Contact
+import pytest
+import random
+import string
 
+def random_string(prefix, maxlen):
+    symbols = string.ascii_letters + string.digits
+    return prefix + "".join([random.choice(symbols) for i in range (random.randrange(maxlen))])
 
-def test_add_contact(app):
+def random_digits(prefix, maxlen):
+    year = string.digits
+    return prefix +"".join([random.choice(year) for i in range (random.randrange(maxlen))])
+
+testdata = [Contact(firstname="", lastname="", nickname="", address="", company="", home="", mobile="", work="", fax="",
+                    email="", email2="", email3="", homepage="", address2="", phone2="", notes="", byear="")] + [
+    Contact(firstname=random_string("firstname", 10), lastname=random_string("lastname", 20), nickname=random_string("nickname", 20),
+            address=random_string("address", 20),
+            email2=random_string("email2", 10), email3=random_string("email3", 20), homepage=random_string("homepage", 20),
+            notes=random_string("notes", 10), byear=random_digits("y", 4))
+    for i in range (5)
+    ]
+
+@pytest.mark.parametrize("contact", testdata, ids=[repr(x) for x in testdata])
+def test_add_contact(app, contact):
     old_contacts = app.contact.get_contact_list()
-    contact = Contact(firstname="Elena", lastname="Sycheva", nickname="Lenchik",
-                              address="Moscow, Mira str,, 1/2", company="Test Company", home="+7(499)7654321",
-                              mobile="+7(999)8765432", work="+7(987)6543210", fax="+7(123)456789", email="elena@mail.ru",
-                              email2="elena1111@mail.ru", email3="elena2222@gmail.com", homepage="www.homepage.ru/elena",
-                              byear="1978", address2="Moscow, Andropova pr., 27/3", phone2="+7(495)7777777",
-                              notes="Hello!", bday="20", bmonth="6")
     app.contact.create(contact)
     app.open_home_page()
     assert len(old_contacts) + 1 == app.contact.count()

@@ -50,10 +50,10 @@ class ContactHelper:
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(contact.homepage)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[12]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[%s]" % contact.bday).click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[11]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[%s]" % contact.bmonth).click()
+        #if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[12]").is_selected():
+        #    wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[%s]" % contact.bday).click()
+        #if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[11]").is_selected():
+        #   wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[%s]" % contact.bmonth).click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(contact.byear)
