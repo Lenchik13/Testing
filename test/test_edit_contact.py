@@ -1,7 +1,7 @@
 from model.contact import Contact
 import random
 
-def test_edit_contact(app, db):
+def test_edit_contact(app, db, check_ui):
     app.open_home_page()
     if app.contact.count() == 0:
         app.contact.create(Contact(firstname="Contact", lastname="", nickname="",
@@ -18,8 +18,11 @@ def test_edit_contact(app, db):
     app.open_home_page()
     assert len(old_contacts) == app.contact.count()
     new_contacts = db.get_contact_list()
-    old_contacts = contact
+    old_contacts.remove(rcontact)
+    old_contacts.append(contact)
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+    if check_ui:
+        assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
 
 
 
