@@ -147,7 +147,8 @@ class ContactHelper:
 
     def modify_contact_by_id(self, new_contact_data):
         wd = self.app.wd
-        wd.get('http://localhost/addressbook/addressbook/edit.php?id='+str(new_contact_data.id))
+        edit_url = self.app.base_url + 'edit.php?id=' + str(new_contact_data.id)
+        wd.get(edit_url)
         self.fill_contact_form(new_contact_data)
         wd.find_element_by_name("update").click()
         self.contact_cache = None
