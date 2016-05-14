@@ -9,6 +9,7 @@ def test_group_list(app, db):
     assert sorted(ui_list, key=Group.id_or_max) == sorted(db_list, key=Group.id_or_max)
 
 def test_contacts_on_home_page(app, db):
+    app.open_home_page()
     db_contacts = db.get_contact_list()
     ui_contacts = app.contact.get_contact_list()
     assert sorted(db_contacts, key=Contact.id_or_max) == sorted(ui_contacts, key=Contact.id_or_max)
