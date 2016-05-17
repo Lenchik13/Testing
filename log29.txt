@@ -1,0 +1,258 @@
+Started by user anonymous
+Building in workspace C:\Users\EBSycheva\.jenkins\jobs\addressbook_tests\workspace
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Lenchik13/Testing/ # timeout=10
+Fetching upstream changes from https://github.com/Lenchik13/Testing/
+ > git.exe --version # timeout=10
+ > git.exe -c core.askpass=true fetch --tags --progress https://github.com/Lenchik13/Testing/ +refs/heads/*:refs/remotes/origin/*
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 575df3e1daf540f74aed957b1dda5ba7310dcb35 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 575df3e1daf540f74aed957b1dda5ba7310dcb35
+ > git.exe rev-list 575df3e1daf540f74aed957b1dda5ba7310dcb35 # timeout=10
+[workspace] $ cmd.exe /c call C:\Users\EBSYCH~1\AppData\Local\Temp\shiningpanda8154602929020981928.bat
+
+C:\Users\EBSycheva\.jenkins\jobs\addressbook_tests\workspace>pip install -r requairements.txt 
+Requirement already satisfied (use --upgrade to upgrade): pytest in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 1))
+Requirement already satisfied (use --upgrade to upgrade): pytest-bdd in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): selenium in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 3))
+Requirement already satisfied (use --upgrade to upgrade): jsonpickle in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 4))
+Requirement already satisfied (use --upgrade to upgrade): pony in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 5))
+Requirement already satisfied (use --upgrade to upgrade): pymysql in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 6))
+Requirement already satisfied (use --upgrade to upgrade): mysql-connector-python-rf in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 7))
+Requirement already satisfied (use --upgrade to upgrade): pytest-allure-adaptor in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 8))
+Requirement already satisfied (use --upgrade to upgrade): lxml==3.4.4 from file:///C:/Users/EBSycheva/.jenkins/jobs/addressbook_tests/workspace/lxml-3.4.4-cp35-none-win_amd64.whl in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from -r requairements.txt (line 9))
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.29 in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requairements.txt (line 1))
+Requirement already satisfied (use --upgrade to upgrade): colorama in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requairements.txt (line 1))
+Requirement already satisfied (use --upgrade to upgrade): parse in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): six>=1.9.0 in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): Mako in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): glob2 in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): parse-type in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-bdd->-r requairements.txt (line 2))
+Requirement already satisfied (use --upgrade to upgrade): namedlist in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-allure-adaptor->-r requairements.txt (line 8))
+Requirement already satisfied (use --upgrade to upgrade): enum34 in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from pytest-allure-adaptor->-r requairements.txt (line 8))
+Requirement already satisfied (use --upgrade to upgrade): MarkupSafe>=0.9.2 in c:\users\ebsycheva\.jenkins\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages (from Mako->pytest-bdd->-r requairements.txt (line 2))
+
+C:\Users\EBSycheva\.jenkins\jobs\addressbook_tests\workspace>py.test  --alluredir allure-reports test\ 
+============================= test session starts =============================
+platform win32 -- Python 3.5.1, pytest-2.9.0, py-1.4.31, pluggy-0.3.1
+rootdir: C:\Users\EBSycheva\.jenkins\jobs\addressbook_tests\workspace, inifile: 
+plugins: allure-adaptor-1.7.2, bdd-2.16.1
+collected 20 items
+
+test\test_add_contact.py .....F
+test\test_add_group.py ......
+test\test_db_matches_ui.py ..
+test\test_del_contact.py .
+test\test_del_group.py .
+test\test_edit_contact.py .
+test\test_edit_group.py .
+test\test_phones.py FF
+
+================================== FAILURES ===================================
+ test_add_contact[None:lastnameNxa3d7hZR:firstnameF99Sy:addressOKCxKOZ8UNlmbM9U:h791853195:m995340:emailkr6uc] 
+
+app = <fixture.application.Application object at 0x0000000004297828>
+db = <fixture.db.DbFixture object at 0x00000000042DB7B8>
+json_contacts = None:lastnameNxa3d7hZR:firstnameF99Sy:addressOKCxKOZ8UNlmbM9U:h791853195:m995340:emailkr6uc
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+>       app.contact.create(contact)
+
+test\test_add_contact.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+fixture\contact.py:14: in create
+    wd.find_element_by_name("firstname").click()
+..\..\..\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\webdriver.py:362: in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+..\..\..\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\webdriver.py:744: in find_element
+    {'using': by, 'value': value})['value']
+..\..\..\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\webdriver.py:233: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x0000000004290198>
+response = {'status': 500, 'value': '{"name":"findElement","sessionId":"92e45958-1ac3-44ab-88e5-1f992d8c87e7","status":7,"value":...pgpzn3ak_/extensions/fxdriver@googlecode.com/components/command-processor.js","lineNumber":12608,"columnNumber":5}]}}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+    
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '<anonymous>')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '<anonymous>')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: {"method":"name","selector":"firstname"}
+E       Stacktrace:
+E           at FirefoxDriver.prototype.findElementInternal_ (file:///C:/Users/EBSYCH~1/AppData/Local/Temp/tmpgpzn3ak_/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+E           at FirefoxDriver.prototype.findElement (file:///C:/Users/EBSYCH~1/AppData/Local/Temp/tmpgpzn3ak_/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+E           at DelayedCommand.prototype.executeInternal_/h (file:///C:/Users/EBSYCH~1/AppData/Local/Temp/tmpgpzn3ak_/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+E           at DelayedCommand.prototype.executeInternal_ (file:///C:/Users/EBSYCH~1/AppData/Local/Temp/tmpgpzn3ak_/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+E           at DelayedCommand.prototype.execute/< (file:///C:/Users/EBSYCH~1/AppData/Local/Temp/tmpgpzn3ak_/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+
+..\..\..\shiningpanda\jobs\22901e47\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\errorhandler.py:194: NoSuchElementException
+__________________________ test_phones_on_home_page ___________________________
+
+app = <fixture.application.Application object at 0x0000000004297828>
+
+    def test_phones_on_home_page(app):
+>       contact_from_home_page = app.contact.get_contact_list()[0]
+E       IndexError: list index out of range
+
+test\test_phones.py:4: IndexError
+______________________ test_phones_on_contact_view_page _______________________
+
+app = <fixture.application.Application object at 0x0000000004297828>
+
+    def test_phones_on_contact_view_page(app):
+>       contact_from_view_page = app.contact.get_contact_from_view_page(0)
+
+test\test_phones.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <fixture.contact.ContactHelper object at 0x00000000042CEA20>, index = 0
+
+    def get_contact_from_view_page(self, index):
+        wd = self.app.wd
+        self.open_contact_view_by_index(index)
+        text = wd.find_element_by_id("content").text
+>       home = re.search("H: (.*)", text).group(1)
+E       AttributeError: 'NoneType' object has no attribute 'group'
+
+fixture\contact.py:204: AttributeError
+==================== 3 failed, 17 passed in 143.11 seconds ====================
+
+C:\Users\EBSycheva\.jenkins\jobs\addressbook_tests\workspace>exit 1 
+Build step 'Virtualenv Builder' marked build as failure
+Invalid tool ID 
+Report generation failed
+java.io.IOException: Can not find allure bin at path 'C:\Users\EBSycheva\.jenkins\tools\ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation\1.4.29\bin\allure.bat'
+	at ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation$1.call(AllureCommandlineInstallation.java:50)
+	at ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation$1.call(AllureCommandlineInstallation.java:45)
+	at hudson.remoting.LocalChannel.call(LocalChannel.java:45)
+	at ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation.getExecutable(AllureCommandlineInstallation.java:45)
+	at ru.yandex.qatools.allure.jenkins.AllureReportPublisher.generateReport(AllureReportPublisher.java:187)
+	at ru.yandex.qatools.allure.jenkins.AllureReportPublisher.perform(AllureReportPublisher.java:93)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:782)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.performAllBuildSteps(AbstractBuild.java:723)
+	at hudson.model.Build$BuildExecution.post2(Build.java:185)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.post(AbstractBuild.java:668)
+	at hudson.model.Run.execute(Run.java:1763)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:98)
+	at hudson.model.Executor.run(Executor.java:410)
+Build step 'Allure Report' marked build as failure
+Finished: FAILURE
